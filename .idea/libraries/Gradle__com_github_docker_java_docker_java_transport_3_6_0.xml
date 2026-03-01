@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.docker-java:docker-java-transport:3.6.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.docker-java" artifactId="docker-java-transport" version="3.6.0" baseVersion="3.6.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java-transport/3.6.0/d522c467aad17fd927e0db0130d2849a321a36aa/docker-java-transport-3.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java-transport/3.6.0/a64e204154874819d697cf8eb18c7db5d499e1d6/docker-java-transport-3.6.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java-transport/3.6.0/49a07b7706674125bb8197b176b8b3e5b7233529/docker-java-transport-3.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

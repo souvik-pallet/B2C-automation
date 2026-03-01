@@ -1,0 +1,31 @@
+import org.gradle.api.logging.LogLevel
+
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.41.0'
+    testImplementation 'org.testng:testng:7.11.0'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:6.3.3'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/java/org/example/tests/resources/testng.xml'
+    }
+    testLogging {
+        events = []
+        showStandardStreams = true
+    }
+
+    systemProperty "org.slf4j.simpleLogger.defaultLogLevel", "error"
+}
