@@ -16,6 +16,10 @@ import org.testng.annotations.Listeners;
 public class BaseTest {
     protected WebDriver driver;
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     @BeforeClass(alwaysRun = true)
     public void setUp() {
         WebDriverManager.chromedriver().setup();

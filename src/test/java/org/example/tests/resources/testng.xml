@@ -7,7 +7,7 @@
 
     <test name="PageTests">
         <classes>
-<!--            <class name="org.example.tests.WelcomePageTests"/>-->
+            <class name="org.example.tests.WelcomePageTests"/>
             <class name="org.example.tests.DeliveryHomePageTest"/>
         </classes>
     </test>

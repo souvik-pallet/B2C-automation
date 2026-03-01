@@ -161,8 +161,9 @@ public class DeliveryHomePage {
         By firstSuggestion = By.xpath("(//div[contains(@class,'pac-item') or contains(@class,'MuiAutocomplete-option')])[1]");
         wait.until(ExpectedConditions.elementToBeClickable(firstSuggestion)).click();
 
-        // click confirm (submit) button and wait for page update (either menu or banner)
+        // click confirm (submit) button
         wait.until(ExpectedConditions.elementToBeClickable(searchSubmitButton)).click();
+        wait.until(ExpectedConditions.urlContains("home"));
     }
 
 
