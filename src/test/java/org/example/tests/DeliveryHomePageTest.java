@@ -3,8 +3,7 @@ package org.example.tests;
 import org.example.base.BaseTest;
 import org.example.pages.DeliveryHomePage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class DeliveryHomePageTest extends BaseTest {
 
@@ -14,15 +13,8 @@ public class DeliveryHomePageTest extends BaseTest {
     public void openHomePage() {
         deliveryPage = new DeliveryHomePage(driver);
         deliveryPage.open();
-
-        ensureHomeLoaded();
     }
 
-    private void ensureHomeLoaded() {
-        if (!deliveryPage.isMenuVisible()) {
-
-        }
-    }
 
     @Test(priority = 0, description = "DHP_B2C_WEB_01 - Verify URL")
     public void verifyUrl() {

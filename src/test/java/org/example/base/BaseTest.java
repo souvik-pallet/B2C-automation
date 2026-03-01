@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-import org.testng.annotations.Listeners;
 
 @Listeners(customTestListener.class)
 public class BaseTest {
+
     protected WebDriver driver;
 
     public WebDriver getDriver() {
@@ -22,21 +23,42 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
+
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
         ChromeOptions options = new ChromeOptions();
 
+        // Headless Support
+        String headless = System.getProperty("headless");
+
+        if ("true".equalsIgnoreCase(headless)) {
+            options.addArguments("--headless=new");
+            options.addArguments("--window-size=1920,1080");
+            System.out.println("Running in HEADLESS mode");
+        }
+
+        // Stability options (recommended)
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        // Allow Geolocation
         Map<String, Object> prefs = new HashMap<>();
         Map<String, Object> profile = new HashMap<>();
         Map<String, Object> contentSettings = new HashMap<>();
 
-        // 1 = allow, 2 = block
-        contentSettings.put("geolocation", 1);
+        contentSettings.put("geolocation", 1); // allow
         profile.put("managed_default_content_settings", contentSettings);
         prefs.put("profile", profile);
 
         options.setExperimentalOption("prefs", prefs);
+
+        // IMPORTANT: Pass options here
+        driver = new ChromeDriver(options);
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        // Mobile viewport size
         driver.manage().window().setSize(new Dimension(430, 932));
     }
 
